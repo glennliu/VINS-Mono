@@ -1,9 +1,9 @@
 %YAML:1.0
 
 #common parameters
-imu_topic: "/imu0"
-image_topic: "/cam0/image_raw"
-output_path: "/home/tony-ws1/output/"
+imu_topic: "/djiros/imu"
+image_topic: "/dji/image0"
+output_path: "/home/lch/Documents/calibration_stereo/"
 
 #camera calibration 
 model_type: PINHOLE
@@ -11,15 +11,15 @@ camera_name: camera
 image_width: 752
 image_height: 480
 distortion_parameters:
-   k1: -2.917e-01
-   k2: 8.228e-02
-   p1: 5.333e-05
-   p2: -1.578e-04
+   k1: -3.1635858530074479e-01
+   k2: 8.7404198449947582e-02
+   p1: -1.6539962625802200e-04
+   p2: 6.3446765480501934e-04
 projection_parameters:
-   fx: 4.616e+02
-   fy: 4.603e+02
-   cx: 3.630e+02
-   cy: 2.481e+02
+   fx: 4.1029952811612043e+02
+   fy: 4.0948834791876965e+02
+   cx: 3.7668808764568666e+02
+   cy: 2.2613551819627679e+02
 
 # Extrinsic parameter between IMU and Camera.
 estimate_extrinsic: 2   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
@@ -28,7 +28,7 @@ estimate_extrinsic: 2   # 0  Have an accurate extrinsic parameters. We will trus
 #If you choose 0 or 1, you should write down the following matrix.
 
 #feature traker paprameters
-max_cnt: 150            # max feature number in feature tracking
+max_cnt: 100            # max feature number in feature tracking
 min_dist: 30            # min distance between two features 
 freq: 10                # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image 
 F_threshold: 1.0        # ransac threshold (pixel)
@@ -55,7 +55,7 @@ fast_relocalization: 0          # useful in real-time and large project
 pose_graph_save_path: "/home/tony-ws1/output/pose_graph/" # save and load path
 
 #unsynchronization parameters
-estimate_td: 0                      # online estimate time offset between camera and imu
+estimate_td: 1                      # online estimate time offset between camera and imu
 td: 0.0                             # initial value of time offset. unit: s. readed image clock + td = real image clock (IMU clock)
 
 #rolling shutter parameters
