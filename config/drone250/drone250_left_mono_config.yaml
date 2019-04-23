@@ -2,7 +2,7 @@
 
 #common parameters
 imu_topic: "/djiros/imu"
-image_topic: "/djiros/image1"
+image_topic: "/djiros/image0"
 output_path: "/home/lch/Documents/calibration_stereo/"
 
 #camera calibration 
